@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/section.css">
+    <link rel="stylesheet" href="css/graph.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <title>Web lab №1</title>
+    <style id="style">
+    </style>
+</head>
+<body>
+
+
+<header>
+    <div id="author">
+        <div id="student">
+            <div>Student</div>
+            <div>Valerii Butorin</div>
+        </div>
+        <div id="group">
+            <div>Group</div>
+            <div>P3231</div>
+        </div>
+        <div id="option">
+            <div>Option</div>
+            <div>31004</div>
+        </div>
+    </div>
+</header>
+<section>
+    <div id="left">
+        <div id="graph">
+            <div>
+                Graph
+            </div>
+            <div>
+                <img id="graph_img" src="img/graph.png" alt="graph">
+            </div>
+            <iframe src="https://api.humanclock.com/iframe.php?mode=mdou" style="width:265px;height:250px;border:0px;margin:0px;overflow:hidden" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div id="form">
+            <div>
+                Form
+            </div>
+            <div>
+                <form id="values" name="values" action="" method="get" onsubmit="return submitForm()" onreset="resetForm()">
+                    <div id="x_val">
+                        <div>
+                            <label>
+                                X
+                            </label>
+                        </div>
+                        <div id="x">
+                            <input id="x1" type="radio" value="-4" class="X_radio" name="X"><label for="x1">-4</label>
+                            <input id="x2" type="radio" value="-3" class="X_radio" name="X"><label for="x2">-3</label>
+                            <input id="x3" type="radio" value="-2" class="X_radio" name="X"><label for="x3">-2</label>
+                            <input id="x4" type="radio" value="-1" class="X_radio" name="X"><label for="x4">-1</label>
+                            <input id="x5" type="radio" value="0" class="X_radio" name="X"><label for="x5">0</label>
+                            <input id="x6" type="radio" value="1" class="X_radio" name="X"><label for="x6">1</label>
+                            <input id="x7" type="radio" value="2" class="X_radio" name="X"><label for="x7">2</label>
+                            <input id="x8" type="radio" value="3" class="X_radio" name="X"><label for="x8">3</label>
+                            <input id="x9" type="radio" value="4" class="X_radio" name="X"><label for="x9">4</label>
+                        </div>
+                        <div class="errors">
+                            <label id="x_err">
+                                <br>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="y_val">
+                        <div>
+                            <label>
+                                Y
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input id="y" type="text" name="Y" placeholder="Value from -5 to 5" class="Y_text">
+                            </label>
+                        </div>
+                        <div class="errors">
+                            <label id="y_err">
+                                <br>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="r_val">
+                        <div>
+                            <label>
+                                R
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <select id="r" name="R">
+                                    <option value="err" hidden disabled selected>&nbsp &nbsp &nbsp &nbsp Select &nbsp &nbsp &nbsp &nbsp
+                                    </option>
+                                    <option value="1">&nbsp &nbsp &nbsp &nbsp One</option>
+                                    <option value="2">&nbsp &nbsp &nbsp &nbsp Two</option>
+                                    <option value="3">&nbsp &nbsp &nbsp &nbsp Three</option>
+                                    <option value="4">&nbsp &nbsp &nbsp &nbsp Four</option>
+                                    <option value="5">&nbsp &nbsp &nbsp &nbsp Five</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="errors">
+                            <label id="r_err">
+                                <br>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Submit" name="submit">
+                        <input type="reset" value="Reset" name="reset">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div id="table">
+            <div>
+                Table
+            </div>
+            <div>
+                <table id="data">
+                    <thead>
+                    <tr>
+                        <td id="x_col">X</td>
+                        <td id="y_col">Y</td>
+                        <td id="r_col">R</td>
+                        <td id="cur_col">Current time</td>
+                        <td id="ex_col">Execution time</td>
+                        <td id="res_col">Hit result</td>
+                    </tr>
+                    </thead>
+                    <tbody id="rows">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+</body>
+</html>

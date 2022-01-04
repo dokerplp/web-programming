@@ -1,0 +1,91 @@
+#form > div:first-child {
+    background: #ad0aad;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#form > div:last-child {
+    background: white;
+    border-radius: 0 0 8px 8px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#values div div:first-child {
+    display: inline;
+    width: 10%;
+    float: left;
+
+    background: #671e67;
+    font-size: 25px;
+    border-radius: 8px 8px 8px 8px;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+#values div div:nth-child(2) {
+    display: inline;
+    width: 90%;
+    color: black;
+}
+
+#values input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    outline: none;
+    margin-right: 5px;
+
+    position: relative;
+    top: 4px;
+}
+
+
+#values input[type="radio"]:checked {
+    border: 6px solid #671e67;
+}
+
+#values input[type="text"] {
+    width: 50%;
+    border-radius: 8px 8px 8px 8px;
+    border-width: 2px;
+    border-color: black;
+    font-size: 15px;
+}
+
+#values select {
+    font-size: 15px;
+    color: grey;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 8px 8px 8px 8px;
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#values .button * {
+    background-color: #671e67;
+    color: white;
+    border-radius: 8px 8px 8px 8px;
+    border-width: 1px;
+    border-color: #671e67;
+    font-size: 20px;
+}
+
+.errors * {
+    color: #E51C22;
+}

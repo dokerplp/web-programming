@@ -1,0 +1,65 @@
+#form div:first-child {
+    background: #ad0aad;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#form div:last-child {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#values {
+    background: white;
+    border-spacing: 20px 20px;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+}
+
+#values tr td:first-child {
+    width: 20%;
+    background: #671e67;
+    font-size: 25px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+#values tr td:last-child {
+    background: white;
+}
+
+.button {
+    background-color: #671e67;
+    color: white;
+    border-radius: 8px 8px 8px 8px;
+    border-width: 1px;
+    border-color: #671e67;
+    font-size: 20px;
+}
+
+#values input[type="text"] {
+    background: white;
+    color: black;
+    width: 100%;
+    border-radius: 8px 8px 8px 8px;
+    border-width: 2px;
+    border-color: black;
+    font-size: 15px;
+}
+
+.errors {
+    color: #E51C22;
+    background: white;
+}
+
+.w {
+    background: white;
+}
+
+.b {
+    color: black;
+}

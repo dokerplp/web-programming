@@ -1,0 +1,63 @@
+#table div:first-child {
+    background: #ad0aad;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+#table div:last-child{
+    background: white;
+    border-radius: 0 0 8px 8px;
+    margin-right: 20px;
+}
+
+#data{
+    border-spacing: 20px;
+    width: 100%;
+}
+
+#data thead *{
+    background: #671e67;
+    font-size: 25px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+#data tbody tr td {
+    background: #985198;
+    font-size: 20px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+#data tbody tr td.true {
+    background: #87E549F9;
+}
+
+#data tbody tr td.false {
+    background: #E51C22;
+}
+
+#x_col {
+    width: 10%;
+}
+
+#y_col {
+    width: 10%;
+}
+
+#r_col {
+    width: 10%;
+}
+
+#cur_col {
+    width: 25%;
+}
+
+#ex_col {
+    width: 25%;
+}
+
+#res_col {
+    width: 20%;
+}

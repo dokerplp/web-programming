@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://java.sun.com/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+>
+<f:view>
+    <h:head>
+        <link rel="stylesheet" href="../css/global.css"/>
+        <link rel="stylesheet" href="../css/main/main.css"/>
+        <link rel="stylesheet" href="../css/main/graph.css"/>
+        <link rel="stylesheet" href="../css/main/table.css"/>
+        <link rel="stylesheet" href="../css/main/form.css"/>
+        <script src="../js/canvas.js"></script>
+        <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+        <title>Web lab 3</title>
+</h:head>
+    <h:body>
+        <div id="left">
+            <div id="graph">
+                <div>
+                    Graph
+                </div>
+                <div>
+                    <canvas id="canvas" width="1000px" height="1000px">
+                        <img id="img" src="${dataBean.img}" alt="graph"/>
+                    </canvas>
+                </div>
+            </div>
+            <div id="form">
+                <div>
+                    Form
+                </div>
+                <div>
+                    <h:form id="input">
+                        <h:inputHidden id="hidden_x" value="${dataBean.hx}"/>
+                        <h:inputHidden id="hidden_y" value="${dataBean.hy}"/>
+                        <h:inputHidden id="hidden_r" value="${dataBean.r}"/>
+                        <table id="values">
+                            <tr>
+                                <td>
+                                    X
+                                </td>
+                                <td>
+                                    <ace:sliderEntry
+                                            id="x"
+                                            axis="x"
+                                            min="-2"
+                                            length="100%"
+                                            max="2"
+                                            stepPercent="1"
+                                            value="#{dataBean.x}">
+                                        <ace:ajax event="slideEnd" execute="@this" render="@form" />
+                                    </ace:sliderEntry>
+                                    <br/>
+                                    <h:outputText id="sliderValue" styleClass="w b" value="${dataBean.x}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Y
+                                </td>
+                                <td>
+                                    <h:inputText id="y" type="text" name="Y" a:placeholder="Value from -5 to 3" class="Y_text" value="#{dataBean.yt}">
+                                        <f:ajax execute="@this" render="@form"/>
+                                    </h:inputText>
+                                    <br/>
+                                    <br/>
+                                    <h:outputText styleClass="errors" value="${dataBean.yr}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    R
+                                </td>
+                                <td>
+                                    <h:outputLabel styleClass="w">
+                                        <h:selectBooleanCheckbox label="1" styleClass="b" value="#{dataBean.r1}">
+                                            <f:ajax execute="@this" render="@all" onevent="reload()"/>
+                                        </h:selectBooleanCheckbox>
+                                        <h:outputText styleClass="w b" value="1 &#160;&#160;"/>
+                                    </h:outputLabel>
+                                    <h:outputLabel styleClass="w">
+                                        <h:selectBooleanCheckbox label="1.5" styleClass="b" value="#{dataBean.r15}">
+                                            <f:ajax execute="@this" render="@all" onevent="reload()"/>
+                                        </h:selectBooleanCheckbox>
+                                        <h:outputText styleClass="w b" value="1.5 &#160;&#160;"/>
+                                    </h:outputLabel>
+                                    <h:outputLabel styleClass="w">
+                                        <h:selectBooleanCheckbox label="2" styleClass="b" value="#{dataBean.r2}">
+                                            <f:ajax execute="@this" render="@all" onevent="reload()"/>
+                                        </h:selectBooleanCheckbox>
+                                        <h:outputText styleClass="w b" value="2 &#160;&#160;"/>
+                                    </h:outputLabel>
+                                    <h:outputLabel styleClass="w">
+                                        <h:selectBooleanCheckbox label="2.5" styleClass="b" value="#{dataBean.r25}">
+                                            <f:ajax execute="@this" render="@all" onevent="reload()"/>
+                                        </h:selectBooleanCheckbox>
+                                        <h:outputText styleClass="w b" value="2.5 &#160;&#160;"/>
+                                    </h:outputLabel>
+                                    <h:outputLabel styleClass="w">
+                                        <h:selectBooleanCheckbox label="3" styleClass="b" value="#{dataBean.r3}">
+                                            <f:ajax execute="@this" render="@all" onevent="reload()"/>
+                                        </h:selectBooleanCheckbox>
+                                        <h:outputText styleClass="w b" value="3"/>
+                                    </h:outputLabel>
+                                    <br/>
+                                    <br/>
+                                    <h:outputText styleClass="errors" value="${dataBean.rr}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <b:commandButton id="submit" type="submit" value="Submit" styleClass="button" action="${dataBean.submit()}" style="margin-right: 20px"/>
+                                    <b:commandButton id="reset" type="reset" value="Reset" styleClass="button" style="margin-right: 20px"/>
+                                    <b:commandButton value="Clear table" styleClass="button" action="${dataBean.clear()}" style="margin-right: 20px"/>
+                                    <h:commandButton action="previous" value="Previous page" styleClass="button"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="table">
+                <div>
+                    Table
+                </div>
+                <div>
+                    <table id="data">
+                        <thead>
+                        <tr>
+                            <td id="x_col">X</td>
+                            <td id="y_col">Y</td>
+                            <td id="r_col">R</td>
+                            <td id="cur_col">Current time</td>
+                            <td id="ex_col">Execution time</td>
+                            <td id="res_col">Hit result</td>
+                        </tr>
+                        </thead>
+                        <tbody id="rows">
+                        <c:set var="rows" value="${dataBean.select()}"/>
+                        <c:if test="${rows != null}">
+                            <c:forEach items="${rows}" var="row">
+                                <tr>
+                                    <td>
+                                        ${row.x}
+                                    </td>
+                                    <td>
+                                        ${row.y}
+                                    </td>
+                                    <td>
+                                        ${row.r}
+                                    </td>
+                                    <td>
+                                        ${row.formatTime()}
+                                    </td>
+                                    <td>
+                                        ${row.exTime} ms
+                                    </td>
+                                    <td class="${row.res}">
+                                        <img src="../img/${row.res}.png" alt="${row.res}" class="img_${row.res}"/>
+                                    </td>
+                                </tr>
+                                <h:outputScript>
+                                    addBuffer("${row.left}", "${row.top}", "${row.res}", "${row.r}");
+                                </h:outputScript>
+                            </c:forEach>
+                            <h:outputScript>
+                                if (parseInt("${rows.size()}") === 0) {
+                                    buffer = [];
+                                    drawImg();
+                                } else {
+                                    drawDots();
+                                }
+                            </h:outputScript>
+                        </c:if>
+                        <c:if test="${rows == null}">
+                            <tr>
+                                <td colspan="6" class="err_msg">
+                                    CAN'T CONNECT TO THE DATABASE
+                                </td>
+                            </tr>
+                        </c:if>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>

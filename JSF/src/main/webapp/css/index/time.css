@@ -1,0 +1,33 @@
+#time div:first-child {
+    background: #ad0aad;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#time div:last-child {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#data {
+    background: white;
+    border-spacing: 20px 20px;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+}
+
+#data thead * {
+    background: #671e67;
+    font-size: 25px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+#data tbody tr td {
+    background: #985198;
+    font-size: 20px;
+    border-radius: 8px 8px 8px 8px;
+}
